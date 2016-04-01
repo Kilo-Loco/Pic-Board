@@ -40,8 +40,11 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     override func viewDidAppear(animated: Bool) {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 46, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 150, height: 50)
+        layout.sectionInset = UIEdgeInsets(top: 45, left: 0, bottom: 40, right: 0)
+        layout.itemSize = CGSize(width: 150, height: 65)
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
         
         
         self.collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -49,6 +52,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         self.collection.delegate = self
         self.collection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         self.collection.backgroundColor = UIColor.blueColor()
+        self.collection.showsHorizontalScrollIndicator = false
         self.view.addSubview(collection)
     }
 

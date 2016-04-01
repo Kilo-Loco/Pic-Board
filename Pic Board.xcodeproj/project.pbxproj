@@ -12,7 +12,33 @@
 		7CFD96C91CAEED1100B9F3DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD96C71CAEED1100B9F3DF /* Main.storyboard */; };
 		7CFD96CB1CAEED1100B9F3DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD96CA1CAEED1100B9F3DF /* Assets.xcassets */; };
 		7CFD96CE1CAEED1100B9F3DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD96CC1CAEED1100B9F3DF /* LaunchScreen.storyboard */; };
+		7CFD96DC1CAEEDCA00B9F3DF /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD96DB1CAEEDCA00B9F3DF /* KeyboardViewController.swift */; };
+		7CFD96E01CAEEDCA00B9F3DF /* Pic Board Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CFD96D91CAEEDCA00B9F3DF /* Pic Board Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7CFD96DE1CAEEDCA00B9F3DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7CFD96B81CAEED1100B9F3DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7CFD96D81CAEEDCA00B9F3DF;
+			remoteInfo = "Pic Board Keyboard";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7CFD96E41CAEEDCB00B9F3DF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7CFD96E01CAEEDCA00B9F3DF /* Pic Board Keyboard.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7CFD96C01CAEED1100B9F3DF /* Pic Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pic Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +48,20 @@
 		7CFD96CA1CAEED1100B9F3DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CFD96CD1CAEED1100B9F3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CFD96CF1CAEED1100B9F3DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CFD96D91CAEEDCA00B9F3DF /* Pic Board Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pic Board Keyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CFD96DB1CAEEDCA00B9F3DF /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		7CFD96DD1CAEEDCA00B9F3DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7CFD96BD1CAEED1100B9F3DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CFD96D61CAEEDCA00B9F3DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				7CFD96C21CAEED1100B9F3DF /* Pic Board */,
+				7CFD96DA1CAEEDCA00B9F3DF /* Pic Board Keyboard */,
 				7CFD96C11CAEED1100B9F3DF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				7CFD96C01CAEED1100B9F3DF /* Pic Board.app */,
+				7CFD96D91CAEEDCA00B9F3DF /* Pic Board Keyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +102,15 @@
 			path = "Pic Board";
 			sourceTree = "<group>";
 		};
+		7CFD96DA1CAEEDCA00B9F3DF /* Pic Board Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD96DB1CAEEDCA00B9F3DF /* KeyboardViewController.swift */,
+				7CFD96DD1CAEEDCA00B9F3DF /* Info.plist */,
+			);
+			path = "Pic Board Keyboard";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +121,34 @@
 				7CFD96BC1CAEED1100B9F3DF /* Sources */,
 				7CFD96BD1CAEED1100B9F3DF /* Frameworks */,
 				7CFD96BE1CAEED1100B9F3DF /* Resources */,
+				7CFD96E41CAEEDCB00B9F3DF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7CFD96DF1CAEEDCA00B9F3DF /* PBXTargetDependency */,
 			);
 			name = "Pic Board";
 			productName = "Pic Board";
 			productReference = 7CFD96C01CAEED1100B9F3DF /* Pic Board.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7CFD96D81CAEEDCA00B9F3DF /* Pic Board Keyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CFD96E11CAEEDCA00B9F3DF /* Build configuration list for PBXNativeTarget "Pic Board Keyboard" */;
+			buildPhases = (
+				7CFD96D51CAEEDCA00B9F3DF /* Sources */,
+				7CFD96D61CAEEDCA00B9F3DF /* Frameworks */,
+				7CFD96D71CAEEDCA00B9F3DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pic Board Keyboard";
+			productName = "Pic Board Keyboard";
+			productReference = 7CFD96D91CAEEDCA00B9F3DF /* Pic Board Keyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +161,9 @@
 				ORGANIZATIONNAME = "Kilo Loco";
 				TargetAttributes = {
 					7CFD96BF1CAEED1100B9F3DF = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					7CFD96D81CAEEDCA00B9F3DF = {
 						CreatedOnToolsVersion = 7.3;
 					};
 				};
@@ -113,6 +182,7 @@
 			projectRoot = "";
 			targets = (
 				7CFD96BF1CAEED1100B9F3DF /* Pic Board */,
+				7CFD96D81CAEEDCA00B9F3DF /* Pic Board Keyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +198,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CFD96D71CAEEDCA00B9F3DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -140,7 +217,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7CFD96D51CAEEDCA00B9F3DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7CFD96DC1CAEEDCA00B9F3DF /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7CFD96DF1CAEEDCA00B9F3DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7CFD96D81CAEEDCA00B9F3DF /* Pic Board Keyboard */;
+			targetProxy = 7CFD96DE1CAEEDCA00B9F3DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7CFD96C71CAEED1100B9F3DF /* Main.storyboard */ = {
@@ -251,6 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Pic Board/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Pic-Board";
@@ -262,10 +356,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Pic Board/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Pic-Board";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7CFD96E21CAEEDCB00B9F3DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Pic Board Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Pic-Board.Pic-Board-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7CFD96E31CAEEDCB00B9F3DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Pic Board Keyboard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Pic-Board.Pic-Board-Keyboard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -286,6 +403,14 @@
 			buildConfigurations = (
 				7CFD96D31CAEED1100B9F3DF /* Debug */,
 				7CFD96D41CAEED1100B9F3DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7CFD96E11CAEEDCA00B9F3DF /* Build configuration list for PBXNativeTarget "Pic Board Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CFD96E21CAEEDCB00B9F3DF /* Debug */,
+				7CFD96E31CAEEDCB00B9F3DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

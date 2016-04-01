@@ -8,9 +8,10 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
+class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet var nextKeyboardButton: UIButton!
+    var collection: UICollectionView!
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -35,10 +36,20 @@ class KeyboardViewController: UIInputViewController {
         self.nextKeyboardButton.leftAnchor.constraintEqualToAnchor(self.view.leftAnchor).active = true
         self.nextKeyboardButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor).active = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 46, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 150, height: 50)
+        
+        
+        self.collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        self.collection.dataSource = self
+        self.collection.delegate = self
+        self.collection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.collection.backgroundColor = UIColor.blueColor()
+        self.view.addSubview(collection)
     }
 
     override func textWillChange(textInput: UITextInput?) {
@@ -56,6 +67,20 @@ class KeyboardViewController: UIInputViewController {
             textColor = UIColor.blackColor()
         }
         self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collection.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        cell.backgroundColor = UIColor.brownColor()
+        return cell
+    }
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 30
     }
 
 }

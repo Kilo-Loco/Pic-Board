@@ -14,6 +14,7 @@
 		7CFD96CE1CAEED1100B9F3DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD96CC1CAEED1100B9F3DF /* LaunchScreen.storyboard */; };
 		7CFD96DC1CAEEDCA00B9F3DF /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD96DB1CAEEDCA00B9F3DF /* KeyboardViewController.swift */; };
 		7CFD96E01CAEEDCA00B9F3DF /* Pic Board Keyboard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7CFD96D91CAEEDCA00B9F3DF /* Pic Board Keyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7CFD96E61CAEF45500B9F3DF /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD96E51CAEF45500B9F3DF /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		7CFD96D91CAEEDCA00B9F3DF /* Pic Board Keyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Pic Board Keyboard.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFD96DB1CAEEDCA00B9F3DF /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		7CFD96DD1CAEEDCA00B9F3DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CFD96E51CAEF45500B9F3DF /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		7CFD96EB1CAF080000B9F3DF /* Pic Board Keyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pic Board Keyboard.entitlements"; sourceTree = "<group>"; };
+		7CFD96EC1CAF092500B9F3DF /* Pic Board.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Pic Board.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		7CFD96C21CAEED1100B9F3DF /* Pic Board */ = {
 			isa = PBXGroup;
 			children = (
+				7CFD96EC1CAF092500B9F3DF /* Pic Board.entitlements */,
 				7CFD96C31CAEED1100B9F3DF /* AppDelegate.swift */,
 				7CFD96C51CAEED1100B9F3DF /* ViewController.swift */,
 				7CFD96C71CAEED1100B9F3DF /* Main.storyboard */,
@@ -105,8 +110,10 @@
 		7CFD96DA1CAEEDCA00B9F3DF /* Pic Board Keyboard */ = {
 			isa = PBXGroup;
 			children = (
+				7CFD96EB1CAF080000B9F3DF /* Pic Board Keyboard.entitlements */,
 				7CFD96DB1CAEEDCA00B9F3DF /* KeyboardViewController.swift */,
 				7CFD96DD1CAEEDCA00B9F3DF /* Info.plist */,
+				7CFD96E51CAEF45500B9F3DF /* CollectionViewCell.swift */,
 			);
 			path = "Pic Board Keyboard";
 			sourceTree = "<group>";
@@ -162,9 +169,21 @@
 				TargetAttributes = {
 					7CFD96BF1CAEED1100B9F3DF = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5K99777NES;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7CFD96D81CAEEDCA00B9F3DF = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5K99777NES;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -221,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFD96E61CAEF45500B9F3DF /* CollectionViewCell.swift in Sources */,
 				7CFD96DC1CAEEDCA00B9F3DF /* KeyboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,6 +364,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Pic Board/Pic Board.entitlements";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Pic Board/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -356,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Pic Board/Pic Board.entitlements";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Pic Board/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -367,6 +389,7 @@
 		7CFD96E21CAEEDCB00B9F3DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Pic Board Keyboard/Pic Board Keyboard.entitlements";
 				INFOPLIST_FILE = "Pic Board Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Pic-Board.Pic-Board-Keyboard";
@@ -378,6 +401,7 @@
 		7CFD96E31CAEEDCB00B9F3DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Pic Board Keyboard/Pic Board Keyboard.entitlements";
 				INFOPLIST_FILE = "Pic Board Keyboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kiloloco.Pic-Board.Pic-Board-Keyboard";

@@ -43,7 +43,11 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     override func viewDidAppear(animated: Bool) {
         let apiHelper = APIHelper()
         apiHelper.getImgURL { (url, success) in
-            print("URL: \(url)\nWas retrieval successful? \(success)")
+            guard success else {
+                print("WE HAVE A PROBLEM")
+                return
+            }
+            print("KYLES URL IS HERE: \(url)")
         }
         
         // Search Bar UI Setup

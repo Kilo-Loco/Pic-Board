@@ -24,8 +24,6 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .System)
@@ -44,11 +42,12 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     
     override func viewDidAppear(animated: Bool) {
         
-        
+        // Search Bar UI Setup
         self.searchBar = UISearchBar(frame: CGRectMake(0, 8, (self.view.frame.width - 8), 30))
         self.searchBar.delegate = self
         self.view.addSubview(self.searchBar)
         
+        // Collection View Flow Layout UI Setup
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
@@ -56,18 +55,28 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         layout.minimumInteritemSpacing = 1
 
         
-        
+        // Collection View UI Setup
         self.collection = UICollectionView(frame: CGRectMake(0, 45, self.view.frame.width, 136), collectionViewLayout: layout)
         layout.itemSize = CGSize(width: 150, height: (self.collection.frame.height/2)-1)
         self.collection.dataSource = self
         self.collection.delegate = self
-        
         self.collection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         self.collection.backgroundColor = UIColor.darkGrayColor()
         self.collection.showsHorizontalScrollIndicator = false
         self.view.addSubview(collection)
         self.view.sendSubviewToBack(self.collection)
         
+        //Segmented Control UI Setup
+        let segControlHeight = self.view.frame.maxY - self.collection.frame.maxY
+        let segControlWidth = self.view.frame.maxX - self.nextKeyboardButton.frame.maxX
+        self.segmentedControl = UISegmentedControl(frame: CGRectMake(self.nextKeyboardButton.frame.maxX, self.collection.frame.maxY, segControlWidth, segControlHeight))
+        let tabs = ["Favs", "Local", "Trending"]
+        for index in 0 ..< tabs.count {
+            let tab = tabs[index]
+            self.segmentedControl.insertSegmentWithTitle(tab, atIndex: index, animated: true)
+        }
+        self.segmentedControl.tintColor = UIColor.blackColor()
+        self.view.addSubview(self.segmentedControl)
     }
 
     override func textWillChange(textInput: UITextInput?) {

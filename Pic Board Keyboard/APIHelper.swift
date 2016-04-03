@@ -45,6 +45,8 @@ class APIHelper {
                         print("imageURL problem")
                         return
                     }
+                    
+                    imgAcquired(url: imageURL, success: true)
                 }
                 
             } catch {

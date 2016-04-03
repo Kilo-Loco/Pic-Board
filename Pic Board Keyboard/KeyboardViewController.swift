@@ -44,10 +44,16 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         let apiHelper = APIHelper()
         apiHelper.getImgURL { (url, success) in
             guard success else {
-                print("WE HAVE A PROBLEM")
+                dispatch_async(dispatch_get_main_queue(), {
+                    print("WE HAVE A PROBLEM")
+                })
                 return
             }
-            print("KYLES URL IS HERE: \(url)")
+            
+            dispatch_async(dispatch_get_main_queue(), { 
+                print("KYLES URL IS HERE: \(url)")
+            })
+            
         }
         
         // Search Bar UI Setup

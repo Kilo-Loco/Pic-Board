@@ -8,10 +8,13 @@
 
 import UIKit
 
-class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet var nextKeyboardButton: UIButton!
     var collection: UICollectionView!
+    var searchBar: UISearchBar!
+    var segmentedControl: UISegmentedControl!
+    
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -21,6 +24,8 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .System)
@@ -39,21 +44,30 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     
     override func viewDidAppear(animated: Bool) {
         
+        
+        self.searchBar = UISearchBar(frame: CGRectMake(0, 8, (self.view.frame.width - 8), 30))
+        self.searchBar.delegate = self
+        self.view.addSubview(self.searchBar)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 45, left: 0, bottom: 40, right: 0)
-        layout.itemSize = CGSize(width: 150, height: 65)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
+
         
         
-        self.collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        self.collection = UICollectionView(frame: CGRectMake(0, 45, self.view.frame.width, 136), collectionViewLayout: layout)
+        layout.itemSize = CGSize(width: 150, height: (self.collection.frame.height/2)-1)
         self.collection.dataSource = self
         self.collection.delegate = self
+        
         self.collection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        self.collection.backgroundColor = UIColor.blueColor()
+        self.collection.backgroundColor = UIColor.darkGrayColor()
         self.collection.showsHorizontalScrollIndicator = false
         self.view.addSubview(collection)
+        self.view.sendSubviewToBack(self.collection)
+        
     }
 
     override func textWillChange(textInput: UITextInput?) {
@@ -71,11 +85,12 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
             textColor = UIColor.blackColor()
         }
         self.nextKeyboardButton.setTitleColor(textColor, forState: .Normal)
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collection.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.brownColor()
+        cell.backgroundColor = UIColor.blackColor()
         return cell
     }
     

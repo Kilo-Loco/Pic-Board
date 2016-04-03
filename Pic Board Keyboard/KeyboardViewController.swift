@@ -41,6 +41,10 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     }
     
     override func viewDidAppear(animated: Bool) {
+        let apiHelper = APIHelper()
+        apiHelper.getImgURL { (url, success) in
+            print("URL: \(url)\nWas retrieval successful? \(success)")
+        }
         
         // Search Bar UI Setup
         self.searchBar = UISearchBar(frame: CGRectMake(0, 8, (self.view.frame.width - 8), 30))

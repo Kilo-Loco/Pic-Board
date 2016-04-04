@@ -14,7 +14,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     var collection: UICollectionView!
     var searchBar: UISearchBar!
     var segmentedControl: UISegmentedControl!
-    
+    static var imageCache: NSCache!
 
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -51,7 +51,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
             }
             
             dispatch_async(dispatch_get_main_queue(), { 
-                print("KYLES URL IS HERE: \(url)")
+                //print("KYLES URL IS HERE: \(url)")
             })
             
         }
@@ -70,12 +70,15 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
 
         
         // Collection View UI Setup
+        
+        
+        
         self.collection = UICollectionView(frame: CGRectMake(0, 45, self.view.frame.width, 136), collectionViewLayout: layout)
         layout.itemSize = CGSize(width: 150, height: (self.collection.frame.height/2)-1)
         self.collection.dataSource = self
         self.collection.delegate = self
-        self.collection.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        self.collection.backgroundColor = UIColor.darkGrayColor()
+        self.collection.registerClass(ImageCell.self, forCellWithReuseIdentifier: "ImageCell")
+        self.collection.backgroundColor = UIColor.darkTextColor()
         self.collection.showsHorizontalScrollIndicator = false
         self.view.addSubview(collection)
         self.view.sendSubviewToBack(self.collection)
@@ -112,8 +115,15 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collection.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        let cell = collection.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath)
         cell.backgroundColor = UIColor.blackColor()
+        
+        let anImage = UIImageView.init(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
+        anImage.layer.cornerRadius = 5.0
+        anImage.clipsToBounds = true
+        anImage.image = UIImage(named: "fry.jpg")
+        cell.addSubview(anImage)
+        
         return cell
     }
     
@@ -123,6 +133,10 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print("you chose me")
     }
 
 }

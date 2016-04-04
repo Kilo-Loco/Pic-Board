@@ -17,6 +17,9 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     var urlArray = [String]()
     var imgArray = [UIImage]()
     var displayedImage: UIImage!
+    var counter = 0
+    var testArray = [UIImage]()
+    var downloadComplete = false
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -27,6 +30,12 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     //MARK: Visual Setup
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.testArray = [
+            UIImage(named: "amc.jpg")!, UIImage(named: "mcdonalds.jpg")!, UIImage(named: "puppy.jpg")!
+        ]
+        
+        
         
         // Perform custom UI setup here
         self.nextKeyboardButton = UIButton(type: .System)
@@ -69,6 +78,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
                     
                 }
                 print(self.imgArray.count)
+                self.downloadComplete = true
                 self.collection.reloadData()
                 
             })
@@ -84,6 +94,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         // Search Bar UI Setup
         self.searchBar = UISearchBar(frame: CGRectMake(0, 8, (self.view.frame.width - 8), 30))
         self.searchBar.delegate = self
+        self.searchBar.barTintColor = UIColor.clearColor()
         self.view.addSubview(self.searchBar)
         
         // Collection View Flow Layout UI Setup
@@ -95,7 +106,6 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         
         
         // Collection View UI Setup
-        
         self.collection = UICollectionView(frame: CGRectMake(0, 45, self.view.frame.width, 136), collectionViewLayout: layout)
         layout.itemSize = CGSize(width: 150, height: (self.collection.frame.height/2)-1)
         self.collection.dataSource = self
@@ -144,8 +154,15 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collection.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as? ImageCell {
             
-
-            cell.configureCell()
+            if self.counter > 2 {
+                self.counter = 0
+            }
+            if downloadComplete {
+            cell.configureCell(self.imgArray, counter: self.counter)
+            } else {
+                cell.configureCell(self.testArray, counter: self.counter)
+            }
+            self.counter += 1
             return cell
         }
        
@@ -159,8 +176,11 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //print("numberofitems\(imgArray.count)")
-        return 100
+        if self.downloadComplete {
+            return self.imgArray.count
+        } else {
+            return 100
+        }
     }
 
 }

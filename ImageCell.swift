@@ -11,6 +11,7 @@ import UIKit
 class ImageCell: UICollectionViewCell {
     var imageView: UIImageView?
     
+    var imageArray = [UIImage]()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -22,6 +23,10 @@ class ImageCell: UICollectionViewCell {
         layer.cornerRadius = 5.0
         self.backgroundColor = UIColor.whiteColor()
         
+//        self.imageArray = [
+//            UIImage(named: "amc.jpg")!, UIImage(named: "mcdonalds.jpg")!, UIImage(named: "puppy.jpg")!
+//        ]
+        
         
         self.imageView = UIImageView(frame: CGRectMake(0, 0, self.frame.width, self.frame.height))
         self.imageView?.layer.cornerRadius = 5.0
@@ -29,12 +34,13 @@ class ImageCell: UICollectionViewCell {
         self.imageView?.backgroundColor = UIColor.greenColor()
         self.imageView?.image = UIImage(named: "fry.jpg")
         self.backgroundView = self.imageView
-        print("fry has been set")
         
     }
     
-    func configureCell() {
-        print("image will be set")
+    func configureCell(array: [UIImage], counter: Int) {
+        
+        print(counter)
+        self.imageView?.image = array[counter]
     }
     
 }

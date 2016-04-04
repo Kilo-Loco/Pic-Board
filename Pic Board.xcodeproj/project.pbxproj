@@ -10,6 +10,9 @@
 		7C20E0D91CB0EAC300E264B6 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C20E0D81CB0EAC300E264B6 /* APIHelper.swift */; };
 		7C20E0DD1CB18CC400E264B6 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C20E0DC1CB18CC400E264B6 /* ImageCell.swift */; };
 		7C20E0DF1CB2104600E264B6 /* fry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C20E0DE1CB2104600E264B6 /* fry.jpg */; };
+		7C20E0E71CB2FFBA00E264B6 /* amc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C20E0E41CB2FFBA00E264B6 /* amc.jpg */; };
+		7C20E0E81CB2FFBA00E264B6 /* mcdonalds.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C20E0E51CB2FFBA00E264B6 /* mcdonalds.jpg */; };
+		7C20E0E91CB2FFBA00E264B6 /* puppy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7C20E0E61CB2FFBA00E264B6 /* puppy.jpg */; };
 		7CFD96C41CAEED1100B9F3DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD96C31CAEED1100B9F3DF /* AppDelegate.swift */; };
 		7CFD96C61CAEED1100B9F3DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD96C51CAEED1100B9F3DF /* ViewController.swift */; };
 		7CFD96C91CAEED1100B9F3DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CFD96C71CAEED1100B9F3DF /* Main.storyboard */; };
@@ -47,6 +50,9 @@
 		7C20E0D81CB0EAC300E264B6 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		7C20E0DC1CB18CC400E264B6 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCell.swift; path = ../ImageCell.swift; sourceTree = "<group>"; };
 		7C20E0DE1CB2104600E264B6 /* fry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fry.jpg; sourceTree = "<group>"; };
+		7C20E0E41CB2FFBA00E264B6 /* amc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = amc.jpg; sourceTree = "<group>"; };
+		7C20E0E51CB2FFBA00E264B6 /* mcdonalds.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mcdonalds.jpg; sourceTree = "<group>"; };
+		7C20E0E61CB2FFBA00E264B6 /* puppy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = puppy.jpg; sourceTree = "<group>"; };
 		7CFD96C01CAEED1100B9F3DF /* Pic Board.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pic Board.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFD96C31CAEED1100B9F3DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CFD96C51CAEED1100B9F3DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 				7CFD96DD1CAEEDCA00B9F3DF /* Info.plist */,
 				7C20E0DC1CB18CC400E264B6 /* ImageCell.swift */,
 				7C20E0DE1CB2104600E264B6 /* fry.jpg */,
+				7C20E0E41CB2FFBA00E264B6 /* amc.jpg */,
+				7C20E0E51CB2FFBA00E264B6 /* mcdonalds.jpg */,
+				7C20E0E61CB2FFBA00E264B6 /* puppy.jpg */,
 				7C20E0D81CB0EAC300E264B6 /* APIHelper.swift */,
 			);
 			path = "Pic Board Keyboard";
@@ -228,6 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C20E0DF1CB2104600E264B6 /* fry.jpg in Resources */,
+				7C20E0E81CB2FFBA00E264B6 /* mcdonalds.jpg in Resources */,
+				7C20E0E91CB2FFBA00E264B6 /* puppy.jpg in Resources */,
+				7C20E0E71CB2FFBA00E264B6 /* amc.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

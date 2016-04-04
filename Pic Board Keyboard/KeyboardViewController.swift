@@ -14,7 +14,8 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     var collection: UICollectionView!
     var searchBar: UISearchBar!
     var segmentedControl: UISegmentedControl!
-    var imageArray = [String]()
+    var urlArray = [String]()
+    var imgArray = [UIImage]()
     var displayedImage: UIImage!
     
     override func updateViewConstraints() {
@@ -23,6 +24,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         // Add custom view sizing constraints here
     }
     
+    //MARK: Visual Setup
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,61 +58,28 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
             }
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.imageArray = urlList
-                for i in 0 ..< self.imageArray.count {
-                    let url = NSURL(string: self.imageArray[i])
+                self.urlArray = urlList
+                
+                for i in 0 ..< self.urlArray.count {
+                    let url = NSURL(string: self.urlArray[i])
                     
                     let data = NSData(contentsOfURL: url!)
                     
-                    self.displayedImage = UIImage(data: data!)
-                    print(self.imageArray[i])
-                    
+                    self.imgArray.append(UIImage(data: data!)!)
                     
                 }
+                print(self.imgArray.count)
                 self.collection.reloadData()
+                
             })
             
         }
 
-        
-        
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         
         self.view.backgroundColor = UIColor.darkTextColor()
-//        
-//        let apiHelper = APIHelper()
-//        apiHelper.getImgURL { (urlList, success) in
-//            guard success else {
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    print("WE HAVE A PROBLEM")
-//                })
-//                return
-//            }
-//            
-//            dispatch_async(dispatch_get_main_queue(), {
-//                self.imageArray = urlList
-//                print(self.imageArray)
-//                print(self.imageArray.count)
-//                for i in 0 ..< self.imageArray.count {
-//                    let url = NSURL(string: self.imageArray[i])
-//                    
-//                    let data = NSData(contentsOfURL: url!)
-//                    
-//                    self.displayedImage = UIImage(data: data!)
-//                }
-//            })
-//            
-//        }
-        
-        
-        
-        
-        
-        
         
         // Search Bar UI Setup
         self.searchBar = UISearchBar(frame: CGRectMake(0, 8, (self.view.frame.width - 8), 30))
@@ -152,6 +121,7 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         self.nextKeyboardButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
     }
     
+    //MARK: Text Logic
     override func textWillChange(textInput: UITextInput?) {
         // The app is about to change the document's contents. Perform any preparation here.
     }
@@ -170,18 +140,18 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
         
     }
     
+    //MARK: Collection View Logic
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collection.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath)
-        cell.backgroundColor = UIColor.blackColor()
-        
-        
-        let anImage = UIImageView.init(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
-        anImage.layer.cornerRadius = 5.0
-        anImage.clipsToBounds = true
-        anImage.image = self.displayedImage
-        cell.addSubview(anImage)
-        
-        return cell
+        if let cell = collection.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as? ImageCell {
+            
+
+            cell.configureCell()
+            return cell
+        }
+       
+        print("returning from here")
+       return ImageCell()
+
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -189,14 +159,8 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //print("numberofitems\(imgArray.count)")
         return 100
     }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
-    //    func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-    //        <#code#>
-    //    }
+
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageCell: UICollectionViewCell {
-    var imageView: UIImageView!
+    var imageView: UIImageView?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,10 +20,21 @@ class ImageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 5.0
+        self.backgroundColor = UIColor.whiteColor()
+        
+        
+        self.imageView = UIImageView(frame: CGRectMake(0, 0, self.frame.width, self.frame.height))
+        self.imageView?.layer.cornerRadius = 5.0
+        self.imageView?.clipsToBounds = true
+        self.imageView?.backgroundColor = UIColor.greenColor()
+        self.imageView?.image = UIImage(named: "fry.jpg")
+        self.backgroundView = self.imageView
+        print("fry has been set")
+        
     }
     
-//    func configureCell() -> Int{
-//    
-//    }
+    func configureCell() {
+        print("image will be set")
+    }
     
 }

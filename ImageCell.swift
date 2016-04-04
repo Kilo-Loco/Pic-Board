@@ -40,7 +40,9 @@ class ImageCell: UICollectionViewCell {
     func configureCell(array: [UIImage], counter: Int) {
         
         print(counter)
-        self.imageView?.image = array[counter]
+        if array.count > counter {
+            self.imageView?.image = array[counter]
+        }
     }
     
 }

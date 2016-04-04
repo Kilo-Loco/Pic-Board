@@ -21,6 +21,11 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     var testArray = [UIImage]()
     var downloadComplete = false
     
+    func resetCounter() {
+        self.counter = 0
+    }
+    
+    
     override func updateViewConstraints() {
         super.updateViewConstraints()
         
@@ -154,15 +159,21 @@ class KeyboardViewController: UIInputViewController, UICollectionViewDelegate, U
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         if let cell = collection.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as? ImageCell {
             
-            if self.counter > 2 {
-                self.counter = 0
+            if !downloadComplete {
+                if self.counter > 2 {
+                    self.counter = 0
+                }
             }
             if downloadComplete {
             cell.configureCell(self.imgArray, counter: self.counter)
             } else {
                 cell.configureCell(self.testArray, counter: self.counter)
             }
-            self.counter += 1
+            if self.counter < 100 {
+                self.counter += 1
+            } else {
+                self.counter = 1
+            }
             return cell
         }
        

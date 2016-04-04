@@ -10,14 +10,16 @@ import Foundation
 
 class APIHelper {
     
-    func getImgURL(imgAcquired:(url: String, success: Bool) -> Void) {
+    var urlArray = [String]()
+    
+    func getImgURL(imgAcquired:(urlList: [String], success: Bool) -> Void) {
         let session = NSURLSession.sharedSession()
         
         let requestURL = NSURL(string: "https://api.imgflip.com/get_memes")!
         
         session.dataTaskWithURL(requestURL) { (data, response, error) in
             guard error == nil && data != nil else {
-                imgAcquired(url: "", success: false)
+                imgAcquired(urlList: [""], success: false)
                 return
             }
             
@@ -46,11 +48,17 @@ class APIHelper {
                         return
                     }
                     
-                    imgAcquired(url: imageURL, success: true)
+                    self.urlArray.append(imageURL)
+                    
+                    //imgAcquired(url: imageURL, success: true)
+                    
+                    
                 }
                 
+                imgAcquired(urlList: self.urlArray, success: true)
+                
             } catch {
-                imgAcquired(url: "", success: false)
+                imgAcquired(urlList: [""], success: false)
             }
             
             }.resume()

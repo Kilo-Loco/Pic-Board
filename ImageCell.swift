@@ -11,6 +11,7 @@ import UIKit
 class ImageCell: UICollectionViewCell {
     var imageView: UIImageView!
     
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -21,8 +22,8 @@ class ImageCell: UICollectionViewCell {
         layer.cornerRadius = 5.0
     }
     
-//    func configureCell(image: UIImage){
-//        self.imageView.image = image
+//    func configureCell() -> Int{
+//    
 //    }
     
 }
